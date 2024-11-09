@@ -1,0 +1,30 @@
+<div class="card form-card">
+  <h2 class="form__title">Sign Up</h2>
+  <form class="form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form__group">
+      <label for="email" class="form__label">Email</label>
+      <input id="email" type="email" formControlName="email" class="form__input" placeholder="Enter your email">
+      <div *ngIf="hasError('email', 'required')" class="form__error">
+        Email is required
+      </div>
+      <div *ngIf="hasError('email', 'email')" class="form__error">
+        Invalid email format
+      </div>
+    </div>
+    <div class="form__group">
+      <label for="password" class="form__label">Password</label>
+      <input id="password" type="password" formControlName="password" class="form__input" placeholder="Enter your password">
+      <div *ngIf="hasError('password', 'required')" class="form__error">
+        Password is required
+      </div>
+      <div *ngIf="hasError('password', 'minlength')" class="form__error">
+        Password must be at least 6 characters long
+      </div>
+      <button type="submit" class="btn btn--primary form__button" [disabled]="registrationForm.invalid">
+      <span class="btn__text">Sign Up</span>
+      <span class="btn__icon">→</span>
+    </button>
+    </div>
+    
+  </form>
+</div>

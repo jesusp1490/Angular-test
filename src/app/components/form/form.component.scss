@@ -1,0 +1,116 @@
+.form-card {
+    max-width: 400px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.form {
+    &__title {
+        font-size: 2.5rem;
+        color: var(--secondary-color);
+        margin-bottom: 2rem;
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    &__group {
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text-color);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        align-self: flex-start;
+    }
+
+    &__input {
+        width: 80%;
+        padding: 0.75rem;
+        border: 2px solid rgba(236, 240, 241, 0.1);
+        border-radius: 8px;
+        font-size: 1rem;
+        background-color: rgba(236, 240, 241, 0.05);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(0, 206, 201, 0.1);
+        }
+
+        &::placeholder {
+            color: rgba(236, 240, 241, 0.5);
+        }
+    }
+
+    &__error {
+        color: var(--error-color);
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        font-weight: 500;
+        align-self: flex-start;
+        margin-left: 10%;
+    }
+
+    &__button {
+        width: 80%;
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        overflow: hidden;
+        position: relative;
+
+        .btn__text {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .btn__icon {
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
+        }
+
+        &:hover {
+            .btn__text {
+                transform: translateX(-10px);
+            }
+
+            .btn__icon {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+    }
+}
